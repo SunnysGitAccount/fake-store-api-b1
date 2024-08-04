@@ -4,10 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 import java.util.Objects;
@@ -15,8 +12,10 @@ import java.util.Objects;
 @Getter
 @Setter
 @ToString
-@Entity
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
 public class Author {
 
     @Id
@@ -24,13 +23,6 @@ public class Author {
     private Long id;
     private String name;
     private String email;
-    private List<String> publications;
-
-    public Author(String name, String email, List<String> publications) {
-        this.name = name;
-        this.email = email;
-        this.publications = publications;
-    }
 
     @Override
     public boolean equals(Object o) {

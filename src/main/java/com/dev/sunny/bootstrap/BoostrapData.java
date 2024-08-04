@@ -17,9 +17,25 @@ public class BoostrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Book b1, b2;
-        b1 = new Book("The Alchemist", "9780062315007", "Paulo Coelho");
-        b2 = new Book("The Da Vinci Code", "9780307474278", "Dan Brown");
+        b1 = Book.builder()
+                .title("The Alchemist")
+                .isbn("9780062315007")
+                .authorName("Paulo Coelho")
+                .build();
+        b2 = Book.builder()
+                .title("The Da Vinci Code")
+                .isbn("9780307474278")
+                .authorName("Dan Brown")
+                .build();
 
+        persistingBooks(b1, b2);
+
+//        TODO: Persist Author to repository
+
+//        TODO: Persist Publisher to repository
+    }
+
+    private void persistingBooks(Book b1, Book b2) throws Exception {
         try {
             bookRepository.save(b1);
             bookRepository.save(b2);

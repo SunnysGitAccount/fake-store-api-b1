@@ -12,6 +12,8 @@ import java.util.Objects;
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 public class Book {
 
@@ -22,12 +24,6 @@ public class Book {
     private String title;
     private String isbn;
     private String authorName;
-
-    public Book(String title, String isbn, String authorName) {
-        this.title = title;
-        this.isbn = isbn;
-        this.authorName = authorName;
-    }
 
     @Override
     public final boolean equals(Object o) {
